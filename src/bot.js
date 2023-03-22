@@ -10,21 +10,6 @@ const client = new Client({
 
 client.once(Events.ClientReady, async c => {
 	console.log(`${c.user.tag} is up running`);
-
-  await client.application.fetch();
-
-  await client.application.commands.create({
-    name: 'ping',
-    description: 'Ping!',
-  });
-});
-
-client.on(Events.InteractionCreate, async interaction => {
-  if (!interaction.isCommand()) return;
-
-  if (interaction.commandName === 'ping') {
-    await interaction.reply('Pong!');
-  }
 });
 
 export default client;
