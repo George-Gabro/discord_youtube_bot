@@ -1,0 +1,28 @@
+{
+  "name": "discord_youtube_bot",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "A discord bot that plays music from a given link",
+  "main": "src/bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/spookyhub/discord_youtube_bot.git"
+  },
+  "keywords": [
+    "bot",
+    "discord",
+    "music"
+  ],
+  "author": "spookyhub",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/spookyhub/discord_youtube_bot/issues"
+  },
+  "homepage": "https://github.com/spookyhub/discord_youtube_bot#readme",
+  "dependencies": {
+    "discord.js": "^14.8.0"
+  }
+}
