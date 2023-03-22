@@ -1,5 +1,4 @@
 import { Client, GatewayIntentBits,SlashCommandBuilder, Events } from 'discord.js';
-import pingEvent from './events/ping.event.js';
 
 const client = new Client({
    intents: [
