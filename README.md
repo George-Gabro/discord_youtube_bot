@@ -16,7 +16,7 @@ A discord bot that plays music from a given link
     - then execute `docker stop <ID>`
 
 ## Commands
-- `music play ${youtube_video_url}` to play a youtube video in the voice channel, PS you have to be inside a voice channel in order to execute this command
+- `music play ${youtube_video_url}` to add a youtube video to the the queue to play, PS you have to be inside a voice channel in order to execute this command
 - `music stop` to stop the played song
 - `music pause` to pause the played song
 - `music resume` to unpause the played song
