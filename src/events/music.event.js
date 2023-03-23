@@ -1,18 +1,33 @@
 import { Events } from "discord.js";
 import { joinVoiceChannel } from '@discordjs/voice';
-import { play, subscribe } from "../musicplayer/music.player.js";
-import { inVoiceChannel, isMusicCommand, isYouTubeUrl } from "../util/validation.util.js";
+import { play, subscribe,stop, pause, resume } from "../musicplayer/music.player.js";
+import { inVoiceChannel, isMusicStopCommand, isPlayMusicCommand, isYouTubeUrl, isMusicPauseCommand, isMusicResumeCommand } from "../util/validation.util.js";
 
 export default (client) =>{
 
+    client.on(Events.MessageCreate, message => {
+        if(isMusicStopCommand(message.content)) stop();
+    })
+
+    client.on(Events.MessageCreate, message => {
+        if(isMusicPauseCommand(message.content)) pause();
+    })
+
+    client.on(Events.MessageCreate, message => {
+        if(isMusicResumeCommand(message.content)) resume();
+    })
+
     client.on(Events.MessageCreate, async message => {
-        // Get the voice channel to join
-        if (isMusicCommand(message.content)) {
-            if (!inVoiceChannel){
-                return message.reply('You need to be in a voice channel to use this command!');
-            } else{
-                const url = message.content.split(' ')[1].trim();
+        if (isPlayMusicCommand(message.content)) {
             
+            const url = message.content.split(' ')[2].trim();
+            
+            if(url !== null) {
+                if (!inVoiceChannel(message.member)){
+                    message.reply('You need to be in a voice channel to use this command!');
+                    return;
+                }
+
                 if(isYouTubeUrl(url)) {
                     const connection = joinVoiceChannel({
                         channelId: message.member.voice.channel.id,
@@ -24,8 +39,6 @@ export default (client) =>{
                     play(url);
         
                     subscribe(connection);
-                }else{
-                    return message.reply("Invalid youtube link")
                 }
             }
         }

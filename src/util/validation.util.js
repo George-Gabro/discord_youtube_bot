@@ -1,6 +1,23 @@
-function isMusicCommand(cmd)
+import { STOP_MUSIC_COMMAND,PLAY_MUSIC_COMMAND, PAUSE_MUSIC_COMMAND, RESUME_MUSIC_COMMAND } from "../protocol/protocol.js";
+
+function isPlayMusicCommand(cmd)
 {
-    return cmd.startsWith('music');
+    return cmd.startsWith(PLAY_MUSIC_COMMAND);
+}
+
+function isMusicStopCommand(cmd)
+{
+  return cmd === STOP_MUSIC_COMMAND
+}
+
+function isMusicPauseCommand(cmd)
+{
+  return cmd === PAUSE_MUSIC_COMMAND;
+}
+
+function isMusicResumeCommand(cmd)
+{
+  return cmd === RESUME_MUSIC_COMMAND;
 }
 
 function inVoiceChannel(member)
@@ -28,4 +45,11 @@ function isYouTubeUrl(url) {
   }
   
 
-export {isMusicCommand,inVoiceChannel,isYouTubeUrl}
+export {
+  isMusicStopCommand,
+  isPlayMusicCommand,
+  inVoiceChannel,
+  isYouTubeUrl,
+  isMusicPauseCommand,
+  isMusicResumeCommand
+}

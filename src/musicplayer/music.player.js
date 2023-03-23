@@ -17,4 +17,25 @@ function subscribe(connection)
     connection.subscribe(player);
 }
 
-export {play, subscribe}
+function stop()
+{
+    player.stop();
+}
+
+function pause()
+{
+    player.pause();
+}
+
+function resume()
+{
+    player.unpause();
+}
+
+export {
+    play,
+    subscribe,
+    stop,
+    resume,
+    pause
+}
