@@ -9,6 +9,12 @@ A discord bot that plays music from a given link
 - First of all copy the `.env.temp` file to `.env` using `cp .env.temp .env` and fill in your discord bot token
 - Then simply run `npm run start` to start up the bot server
 
+## Starting the bot with docker container
+- Run this command to build the docker image `sudo docker build -t discord_youtube_bot .`
+- Then start the docker container `docker run -p 3000:3000 discord_youtube_bot`
+    - to stop the bot get the container id, you can see the id using command `docker ps`
+    - then execute `docker stop <ID>`
+
 ## Commands
 - `music ${youtube_video_url}` to play a youtube video in the voice channel, PS you have to be inside a voice channel in order to execute this command
 - `ping` simply returns pong
