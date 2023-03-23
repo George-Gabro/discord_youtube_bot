@@ -1,6 +1,6 @@
 import { Events } from "discord.js";
 import { joinVoiceChannel } from '@discordjs/voice';
-import { play, subscribe,stop, pause, resume } from "../musicplayer/music.player.js";
+import { addSong, subscribe,stop, pause, resume } from "../musicplayer/music.player.js";
 import { inVoiceChannel, isMusicStopCommand, isPlayMusicCommand, isYouTubeUrl, isMusicPauseCommand, isMusicResumeCommand } from "../util/validation.util.js";
 
 export default (client) =>{
@@ -38,7 +38,7 @@ export default (client) =>{
                         selfDeaf: false
                     });
         
-                    play(url);
+                    addSong(url);
         
                     subscribe(connection);
                 }
