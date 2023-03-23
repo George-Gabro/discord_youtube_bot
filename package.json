@@ -5,7 +5,7 @@
   "description": "A discord bot that plays music from a given link",
   "main": "src/bot.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node src/server.js"
   },
   "repository": {
     "type": "git",
