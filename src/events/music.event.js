@@ -20,9 +20,11 @@ export default (client) =>{
     client.on(Events.MessageCreate, async message => {
         if (isPlayMusicCommand(message.content)) {
             
-            const url = message.content.split(' ')[2].trim();
-            
-            if(url !== null) {
+            const contentArray = message.content.split(' ');
+            let url = null;
+
+            if (contentArray.length >= 3 && contentArray[2].trim() !== '') {
+                url = contentArray[2].trim();
                 if (!inVoiceChannel(message.member)){
                     message.reply('You need to be in a voice channel to use this command!');
                     return;
