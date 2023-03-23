@@ -12,9 +12,9 @@ async function play(url)
     player.play(resource);
 }
 
-function getPlayer()
+function subscribe(connection)
 {
-    return player;
+    connection.subscribe(player);
 }
 
-export {play, getPlayer}
+export {play, subscribe}
