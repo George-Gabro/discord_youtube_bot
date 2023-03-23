@@ -38,6 +38,9 @@ function subscribe(connection)
 
 function stop()
 {
+    while(!isEmpty){
+        dequeue();
+    }
     player.stop();
 }
 
